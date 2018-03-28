@@ -60,3 +60,7 @@
 
 ### 当前样本 Current Demo
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickHelperDemo.png)
+
+### 联系方式
+
+* Email: downwes@gmail.com
