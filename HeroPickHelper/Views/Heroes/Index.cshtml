@@ -1,0 +1,20 @@
+﻿@model IEnumerable<HeroPickHelper.Models.Hero>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>英雄列表</h2>
+
+<div>
+    <ul>
+    @foreach (var hero in Model)
+    {
+        <li>
+            <img src=@hero.Url_small_portrait alt=@hero.Name />
+            <label>@hero.Localized_name</label>
+        </li>
+    }
+    </ul>
+
+</div>
