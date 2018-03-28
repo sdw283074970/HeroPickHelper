@@ -19,13 +19,15 @@ namespace HeroPickHelper.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
-            context.Duties.AddOrUpdate(d => d.Name,
-                new Duty() { Id = 1, Name = "Carry" },
-                new Duty() { Id = 2, Name = "Mid" },
-                new Duty() { Id = 3, Name = "Offlane" },
-                new Duty() { Id = 4, Name = "RoamOrJungle" },
-                new Duty() { Id = 5, Name = "Support" }
-                );
+
+            //EF无法正确编码 尝试插入Character Set=UTF8在connectionStrings中失败
+            //context.Duties.AddOrUpdate(d => d.Id,
+            //    new Duty() { Id = 1, Name = "大哥" },
+            //    new Duty() { Id = 2, Name = "中单" },
+            //    new Duty() { Id = 3, Name = "劣单" },
+            //    new Duty() { Id = 4, Name = "游走或打野" },
+            //    new Duty() { Id = 5, Name = "辅助" }
+            //    );
         }
     }
 }

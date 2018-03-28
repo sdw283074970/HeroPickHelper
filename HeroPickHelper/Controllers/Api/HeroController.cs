@@ -107,24 +107,6 @@ namespace HeroPickHelper.Controllers.Api
             return Created(new Uri(Request.RequestUri + "/" + heroes[0].Id + ":" + heroes[heroes.Count - 1].Id), heroesDto);
         }
 
-        // Get hero's duties helper
-        public IList<Duty> GetHeroDuties(int id)
-        {
-            var dutyList = new List<Duty>();
-
-            var heroInDb = _context.Heroes.Include(c => c.DutyHeroes).SingleOrDefault(c => c.Id == id);
-
-            if (heroInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-
-            foreach (var heroDuty in heroInDb.DutyHeroes)
-            {
-                dutyList.Add(_context.Duties.Single(c => c.Id == heroDuty.DutyId));
-            }
-
-            return dutyList;
-        }
-
         //PUT /api/hero/{id} 这个批量更改的方法依赖Name字段，Dto中请不要更改这个字段
         [HttpPut]
         public void EditedHeroes(IEnumerable<HeroDto> heroesDto)

@@ -1,4 +1,5 @@
 ﻿using HeroPickHelper.Models;
+using HeroPickHelper.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,13 @@ namespace HeroPickHelper.Controllers
         // GET: Heroes
         public ActionResult Index()
         {
-            var heroes = _context.Heroes.ToList();
+            var viewModel = new HeroViewModel()
+            {
+                heroList = _context.Heroes.ToList(),
+                helper = new Helper.HeroDutyHelper()
+            };
 
-            return View(heroes);
+            return View(viewModel);
         }
     }
 }

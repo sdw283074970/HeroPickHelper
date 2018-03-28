@@ -1,20 +1,58 @@
-﻿@model IEnumerable<HeroPickHelper.Models.Hero>
+﻿@model HeroPickHelper.ViewModel.HeroViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>英雄列表</h2>
+<h2>测试页面</h2>
 
 <div>
-    <ul>
-    @foreach (var hero in Model)
-    {
-        <li>
-            <img src=@hero.Url_small_portrait alt=@hero.Name />
-            <label>@hero.Localized_name</label>
-        </li>
-    }
-    </ul>
-
+    <div>
+        <section>
+            <header>英雄职责列表</header>
+            <article>
+                <table id="heroes" class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th colspan="2">英雄</th>
+                            <th>职责</th>
+                            <th>删除</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var hero in Model.heroList)
+                        {
+                            <tr>
+                                <td class="img-rounded">
+                                    <div>
+                                        <img src="@hero.Url_small_portrait" alt="@hero.Name">
+                                    </div>
+                                </td>
+                                <td>@hero.Localized_name</td>
+                                <td>
+                                    @foreach (var dutyName in Model.helper.GetHeroDutyies(hero.Id))
+                                    {
+                                        <text>@dutyName</text>
+                                    }
+                                </td>
+                                <td>
+                                    <button class="btn btn-link js-delete">Delete</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </div>
 </div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#heroes .js-delete").on("click", function () {
+                confirm("确定在此页面删除这个英雄？");
+            });
+        });
+    </script>
+}
