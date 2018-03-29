@@ -33,7 +33,7 @@
 
 ### 项目计划表 To Do List
 
-* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库(已完成)
+* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库![Demo](https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)
 
 * 获取英雄克制数据，写入数据库
 	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
@@ -44,10 +44,10 @@
 
 * 搭建RESTful Api
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
-	- 方法为GET，路由为 `/api/heropick`
+	- 方法为POST，路由为 `~/api/heropick`
 
 * 制作前端页面
-	- 调用 POST `/api/heropick` 在客户端解析数据
+	- 调用 POST `~/api/heropick` 在客户端解析数据
  	- 生成可视化列表
 	
 ### 安装 Installation
