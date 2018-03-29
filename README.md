@@ -33,7 +33,7 @@
 
 ### 项目计划表 To Do List
 
-* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库![Demo](https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)
+* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)
 
 * 获取英雄克制数据，写入数据库
 	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
