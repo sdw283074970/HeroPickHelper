@@ -33,20 +33,20 @@
 
 ### 项目计划表 To Do List
 
-* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/view/Precise/view/All%20Precise/job/precise-desktop-amd64_default.svg)
+* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/Tests-1%2F1-green.svg)
 
-* 获取英雄克制数据，写入数据库
+* 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
 	- 选择2：使用你懂的抓取以上网站的英雄克制数据
 	- 选择3：通过Steam暴露的Api获得近期比赛大数据，自己分析计算英雄克制数据
 
-* 基于英雄克制数据，设计英雄推荐列表生成算法
+* 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 
-* 搭建RESTful Api
+* 搭建RESTful Api	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
 	- 方法为POST，路由为 `~/api/heropick`
 
-* 制作前端页面
+* 制作前端页面	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 	- 调用 POST `~/api/heropick` 在客户端解析数据
  	- 生成可视化列表
 	
