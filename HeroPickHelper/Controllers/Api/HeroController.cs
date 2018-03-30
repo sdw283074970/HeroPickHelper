@@ -30,7 +30,9 @@ namespace HeroPickHelper.Controllers.Api
 
             //GetHeroDuties(161);这是个测试
 
-            var heroesDto = _context.Heroes.ToList().Select(Mapper.Map<Hero, HeroDto>);
+            var heroesQuery = _context.Heroes.Include(c => c.DutyHeroes).Select(c => c);
+
+            var heroesDto = heroesQuery.Select(Mapper.Map<Hero, HeroDto>);
 
             return Ok(heroesDto);
         }
