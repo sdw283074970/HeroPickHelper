@@ -42,9 +42,9 @@
 
 * 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 
-* 搭建RESTful Api	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
+* 搭建RESTful Api	![Demo](https://img.shields.io/teamcity/coverage/bt428.svg)
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
-	- 方法为POST，路由为 `~/api/heropick`
+	- 方法为POST，路由为 `~/api/herocalculator`
 
 * 制作前端页面	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
 	- 调用 POST `~/api/heropick` 在客户端解析数据
