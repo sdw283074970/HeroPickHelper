@@ -222,6 +222,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Dtos\DutyDto.cs" />
+    <Compile Include="Dtos\DutyHeroDto.cs" />
     <Compile Include="Dtos\HeroDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

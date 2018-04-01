@@ -19,6 +19,11 @@ namespace HeroPickHelper.App_Start
 
             Mapper.CreateMap<Duty, DutyDto>();
             Mapper.CreateMap<DutyDto, Duty>();
+
+            Mapper.CreateMap<DutyHeroDto, DutyHero>();
+            Mapper.CreateMap<DutyHero, DutyHeroDto>()
+                .ForMember(m => m.Duty, opt => opt.Ignore())
+                .ForMember(m => m.Hero, opt => opt.Ignore());
         }
     }
 }
