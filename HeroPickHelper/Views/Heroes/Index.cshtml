@@ -10,22 +10,22 @@
     <div>
         <section>
             <header>英雄职责列表</header>
-            <article>
-                <table id="heroes" class="table table-condensed table-hover table-striped">
+            <article class="table-divided">
+                <table id="heroes" class="table table-condensed table-hover table-striped" data-page-length="5">
                     <thead>
                         <tr>
                             <th colspan="2">英雄</th>
-                            <th>职责</th>
+                            <th>指数</th>
                             <th>删除</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var hero in Model.heroList)
+                        @*@foreach (var hero in Model.heroList)
                         {
                             <tr>
                                 <td class="img-rounded">
                                     <div>
-                                        <img src="@hero.Url_small_portrait" alt="@hero.Name">
+                                        <img class="test" src="@hero.Url_small_portrait" alt="@hero.Name">
                                     </div>
                                 </td>
                                 <td>@hero.Localized_name</td>
@@ -39,7 +39,7 @@
                                     <button class="btn btn-link js-delete">Delete</button>
                                 </td>
                             </tr>
-                        }
+                        }*@
                     </tbody>
                 </table>
             </article>
@@ -50,12 +50,40 @@
 {
     <script>
         $(document).ready(function () {
-            $("#heroes .js-delete").on("click", function () {
-                bootbox.confirm("确定在此页面删除这个英雄？", function (result) {
-                    if (result) {
 
+            $.extend($.fn.dataTable.defaults, {
+                searching: false,
+                ordering: false,
+                paging: false
+            });
+
+            $("#heroes").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "carries"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        } 
+                    },
+                    {
+                        data: "nick_name"
+                    },
+                    {
+                        data: "id",
+                        render: function () {
+                            return "<button class='js-delete btn btn-link'>Delete</button>";
+                        }
                     }
-                });
+                ]
+            });
+
+            $("#heroes").on("click", ".js-delete", function () {
+                var button = $(this);
+                button.hide();   //调用bootbox.confirm()方法
             });
         });
     </script>

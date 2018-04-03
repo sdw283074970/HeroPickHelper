@@ -18,8 +18,31 @@ namespace HeroPickHelper.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
+        //GET /api/herocalculator
+        public IHttpActionResult GetResult()
+        {
+            //查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)
+            var carriesInfo = GetDutyInfo(1);
+            var midsInfo = GetDutyInfo(2);
+            var offlanesInfo = GetDutyInfo(3);
+            var roamAndJunglesInfo = GetDutyInfo(4);
+            var supportsInfo = GetDutyInfo(5);
 
-        //GET /api/herocalculater
+            //返回这个计算结果列表给前端
+            var resultList = new ResultList()
+            {
+                Carries = carriesInfo,
+                Mids = midsInfo,
+                RoamOrJuggles = roamAndJunglesInfo,
+                Offlanes = offlanesInfo,
+                Supports = supportsInfo
+            };
+
+            return Ok(resultList);
+        }
+
+
+        //POST /api/herocalculator
         [HttpPost]
         public IHttpActionResult GetCalculateResult(int[] ids)
         {
@@ -46,13 +69,23 @@ namespace HeroPickHelper.Controllers.Api
         //将"查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)"这个过程封装成方法
         //有了英雄克制数据库后，在这个方法里面写算法
         //目前按照英雄Id顺序返回所有12345号位，有了克制数据库和算法后，将按照克制指数排序后再返回
-        public IList<Hero> GetDutyInfo(int id)
+        //目前返回前五位英雄
+        public IList<Hero> GetDutyInfo(int dutyId)
         {
-            return _context.DutyHeroes
+            var q = _context.DutyHeroes
                 .Include(c => c.Hero)
-                .Where(c => c.DutyId == id)
+                .Where(c => c.DutyId == dutyId)
                 .Select(c => c.Hero)
                 .ToList();
+
+            var result = new List<Hero>();
+
+            for(int i = 0; i < 5; i++)
+            {
+                result.Add(q[i]);
+            }
+
+            return result;
         }
 
     }

@@ -3,8 +3,8 @@
     ViewBag.Title = "HeroCalculator";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@Styles.Render("~/Content/css")
 <h2>测试页面</h2>
-
 <div class="maincontainer">
     <div>
         <section>
@@ -12,7 +12,7 @@
         </section>
     </div>
     <div class="section-main">
-        <div class="section-pickarea">
+        <div id="pickarea" class="section-pickarea">
             <div>
                 <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
@@ -28,59 +28,59 @@
             <div>
                 <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
-            <button class="btn btn-danger cal">Calculate!</button>
+            <input type="button" class="btn btn-danger cal" value="Test!">
         </div>
-        <section class="section-tablearea">
+        <section id="heroresults" class="section-tablearea">
             <article class="table-divided">
-                <table id="carry" class="table table-condensed table-hover table-striped">
+                <table id="carry" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th colspan="2">Carry</th>
-                            <th>Index</th>
+                            <th>推荐大哥</th>
+                            <th>对阵指数</th>
                         </tr>
                     </thead>
                     <tbody>
                 </table>
             </article>
             <article class="table-divided">
-                <table id="mid" class="table table-condensed table-hover table-striped">
+                <table id="mid" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th colspan="2">Mid</th>
-                            <th>Index</th>
+                            <th>推荐中单</th>
+                            <th>对阵指数</th>
                         </tr>
                     </thead>
                     <tbody>
                 </table>
             </article>
             <article class="table-divided">
-                <table id="offlane" class="table table-condensed table-hover table-striped">
+                <table id="offlane" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th colspan="2">Offlane</th>
-                            <th>Index</th>
+                            <th>推荐劣单</th>
+                            <th>对阵指数</th>
                         </tr>
                     </thead>
                     <tbody>
                 </table>
             </article>
             <article class="table-divided">
-                <table id="roamorjungle" class="table table-condensed table-hover table-striped">
+                <table id="roam" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th colspan="2">Roam</th>
-                            <th>Index</th>
+                            <th>推荐酱油</th>
+                            <th>对阵指数</th>
                         </tr>
                     </thead>
                     <tbody>
                 </table>
             </article>
             <article class="table-divided">
-                <table id="support" class="table table-condensed table-hover table-striped">
+                <table id="support" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th colspan="2">Support</th>
-                            <th>Index</th>
+                            <th>推荐辅助</th>
+                            <th>对阵指数</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,3 +89,38 @@
         </section>
     </div>
 </div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $.extend($.fn.dataTable.defaults, {
+                searching: false,
+                ordering: false,
+                paging: false
+            });
+
+            $("#carry").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "carries"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        }
+                    },
+                    {
+                        data: "position",
+                        render: function (data) {
+                            return "<text>null</text>";
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+}
