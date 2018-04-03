@@ -12,8 +12,8 @@ namespace HeroPickHelper.App_Start
     {
         public MappingProfile()
         {
-            Mapper.CreateMap<Hero, HeroDto>();
-            Mapper.CreateMap<HeroDto, Hero>()
+            Mapper.CreateMap<HeroToclient, HeroDto>();
+            Mapper.CreateMap<HeroDto, HeroToclient>()
                 .ForMember(m => m.Id, opt => opt.Ignore())
                 .ForMember(m => m.DutyHeroes, opt => opt.Ignore());
 

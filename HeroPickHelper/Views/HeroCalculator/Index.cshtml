@@ -14,19 +14,19 @@
     <div class="section-main">
         <div id="pickarea" class="section-pickarea">
             <div>
-                <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <input type="button" class="btn btn-danger cal" value="Test!">
         </div>
@@ -68,7 +68,7 @@
                 <table id="roam" class="table table-condensed table-hover table-striped table-result" data-page-length="5">
                     <thead>
                         <tr>
-                            <th>推荐酱油</th>
+                            <th>推荐游野</th>
                             <th>对阵指数</th>
                         </tr>
                     </thead>
@@ -105,6 +105,90 @@
                 ajax: {
                     url: "/api/herocalculator",
                     dataSrc: "carries"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        }
+                    },
+                    {
+                        data: "position",
+                        render: function (data) {
+                            return "<text>null</text>";
+                        }
+                    }
+                ]
+            });
+
+            $("#mid").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "mids"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        }
+                    },
+                    {
+                        data: "position",
+                        render: function (data) {
+                            return "<text>null</text>";
+                        }
+                    }
+                ]
+            });
+
+            $("#offlane").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "offlanes"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        }
+                    },
+                    {
+                        data: "position",
+                        render: function (data) {
+                            return "<text>null</text>";
+                        }
+                    }
+                ]
+            });
+
+            $("#roam").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "roamOrJuggles"
+                },
+                columns: [
+                    {
+                        data: "url_small_portrait",
+                        render: function (data) {
+                            return "<img src='" + data + "' alt='test' />";
+                        }
+                    },
+                    {
+                        data: "position",
+                        render: function (data) {
+                            return "<text>null</text>";
+                        }
+                    }
+                ]
+            });
+
+            $("#support").DataTable({
+                ajax: {
+                    url: "/api/herocalculator",
+                    dataSrc: "supports"
                 },
                 columns: [
                     {

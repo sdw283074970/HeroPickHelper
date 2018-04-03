@@ -72,11 +72,11 @@ textarea {
 }
 
 .table-result {
-    border-style:solid;
-    border-color:red;
+    /*border-style:solid;
+    border-color:red;*/
     width:100%;
 }
 
 .cal {
-    margin-left:45.8%;
+    margin-left:47.2%;
 }

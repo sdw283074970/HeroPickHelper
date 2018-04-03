@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HeroPickHelper.Models
 {
-    public class Hero
+    public class HeroToclient
     {
         public int Id { get; set; }
 

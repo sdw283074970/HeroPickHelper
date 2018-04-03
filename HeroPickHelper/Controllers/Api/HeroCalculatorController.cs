@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Data.Entity;
 using System.Web.Http;
+using HeroPickHelper.Helper;
 
 namespace HeroPickHelper.Controllers.Api
 {
@@ -19,74 +20,86 @@ namespace HeroPickHelper.Controllers.Api
         }
 
         //GET /api/herocalculator
-        public IHttpActionResult GetResult()
-        {
-            //查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)
-            var carriesInfo = GetDutyInfo(1);
-            var midsInfo = GetDutyInfo(2);
-            var offlanesInfo = GetDutyInfo(3);
-            var roamAndJunglesInfo = GetDutyInfo(4);
-            var supportsInfo = GetDutyInfo(5);
+        //public IHttpActionResult GetResult()
+        //{
+        //    //查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)
+        //    var carriesInfo = GetDutyInfo(1);
+        //    var midsInfo = GetDutyInfo(2);
+        //    var offlanesInfo = GetDutyInfo(3);
+        //    var roamAndJunglesInfo = GetDutyInfo(4);
+        //    var supportsInfo = GetDutyInfo(5);
 
-            //返回这个计算结果列表给前端
-            var resultList = new ResultList()
-            {
-                Carries = carriesInfo,
-                Mids = midsInfo,
-                RoamOrJuggles = roamAndJunglesInfo,
-                Offlanes = offlanesInfo,
-                Supports = supportsInfo
-            };
+        //    //返回这个计算结果列表给前端
+        //    var resultList = new ResultList()
+        //    {
+        //        Carries = carriesInfo,
+        //        Mids = midsInfo,
+        //        RoamOrJuggles = roamAndJunglesInfo,
+        //        Offlanes = offlanesInfo,
+        //        Supports = supportsInfo
+        //    };
 
-            return Ok(resultList);
-        }
+        //    return Ok(resultList);
+        //}
 
 
         //POST /api/herocalculator
         [HttpPost]
-        public IHttpActionResult GetCalculateResult(int[] ids)
+        public IHttpActionResult GetCalculateResult(int[] enemyIds)
         {
-            //查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)
-            var carriesInfo = GetDutyInfo(1);
-            var midsInfo = GetDutyInfo(2);
-            var offlanesInfo = GetDutyInfo(3);
-            var roamAndJunglesInfo = GetDutyInfo(4);
-            var supportsInfo = GetDutyInfo(5);
+            ////查找HeroDuty列表中含有DutyId为1/2/3/4/5的对象(这个对象包含了英雄Id的信息)
+            //var carriesInfo = GetDutyInfo(1);
+            //var midsInfo = GetDutyInfo(2);
+            //var offlanesInfo = GetDutyInfo(3);
+            //var roamAndJunglesInfo = GetDutyInfo(4);
+            //var supportsInfo = GetDutyInfo(5);
 
-            //返回这个计算结果列表给前端
-            var resultList = new ResultList()
+            ////返回这个计算结果列表给前端
+            //var resultList = new ResultList()
+            //{
+            //    Carries = carriesInfo,
+            //    Mids = midsInfo,
+            //    RoamOrJuggles = roamAndJunglesInfo,
+            //    Offlanes = offlanesInfo,
+            //    Supports =supportsInfo
+            //};
+
+            var helper = new HeroDutyHelper();
+
+            if (enemyIds == null)
             {
-                Carries = carriesInfo,
-                Mids = midsInfo,
-                RoamOrJuggles = roamAndJunglesInfo,
-                Offlanes = offlanesInfo,
-                Supports =supportsInfo
-            };
-
-            return Created(Request.RequestUri + "/" + "TBD", resultList);
-        }
-
-        //将"查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)"这个过程封装成方法
-        //有了英雄克制数据库后，在这个方法里面写算法
-        //目前按照英雄Id顺序返回所有12345号位，有了克制数据库和算法后，将按照克制指数排序后再返回
-        //目前返回前五位英雄
-        public IList<Hero> GetDutyInfo(int dutyId)
-        {
-            var q = _context.DutyHeroes
-                .Include(c => c.Hero)
-                .Where(c => c.DutyId == dutyId)
-                .Select(c => c.Hero)
-                .ToList();
-
-            var result = new List<Hero>();
-
-            for(int i = 0; i < 5; i++)
-            {
-                result.Add(q[i]);
+                return BadRequest();
             }
 
-            return result;
-        }
+            if (enemyIds.Count() == 1)
+            {
+                var enemyCounteredHeroList = helper.GetEnemyCounteredHeroList(enemyIds[0]);
+                var weightedList = helper.GetWeightedList(enemyCounteredHeroList, enemyIds[0]);
 
+                var orderedList = helper.OrderList(weightedList);
+
+                var carriesInfo = helper.GetDutyInfo(1, orderedList);
+                var midsInfo = helper.GetDutyInfo(2, orderedList);
+                var offlanesInfo = helper.GetDutyInfo(3, orderedList);
+                var roamAndJunglesInfo = helper.GetDutyInfo(4, orderedList);
+                var supportsInfo = helper.GetDutyInfo(5, orderedList);
+
+                //返回这个计算结果列表给前端
+                var resultList = new ResultList()
+                {
+                    Carries = carriesInfo,
+                    Mids = midsInfo,
+                    RoamOrJuggles = roamAndJunglesInfo,
+                    Offlanes = offlanesInfo,
+                    Supports = supportsInfo
+                };
+
+                return Ok(resultList);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }
