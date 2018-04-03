@@ -219,6 +219,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\HeroCalculatorController.cs" />
     <Compile Include="Controllers\Api\HeroController.cs" />
+    <Compile Include="Controllers\HeroCalculatorController.cs" />
     <Compile Include="Controllers\HeroesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -366,6 +367,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Heroes\Index.cshtml" />
     <Content Include="Views\Shared\_Partial.cshtml" />
+    <Content Include="Views\HeroCalculator\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
