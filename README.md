@@ -47,8 +47,8 @@
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
 	- 方法为POST，路由为 `~/api/herocalculator`
 
-* 制作前端页面	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
-	- 调用 POST `~/api/heropick` 在客户端解析数据
+* 制作前端页面	![Demo](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)
+	- 调用 POST `~/api/herocalculator` 在客户端解析数据
  	- 生成可视化列表
 	
 ### 安装 Installation
