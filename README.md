@@ -60,10 +60,10 @@
 * 部署方式待定
 
 ### 当前样本 Current Demo
-# 主功能页面MainFunctionPage
+#### 主功能页面框架MainFunctionPageFramework
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/MainFunctionPage.png)
 
-# 示例Demo
+#### 示例Demo
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickHelperDemo.png)
 
 ### 联系方式 Contact
