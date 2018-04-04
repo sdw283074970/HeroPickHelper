@@ -147,5 +147,30 @@ namespace HeroPickHelper.Helper
 
             return result;
         }
+
+            //将第4~6步骤封装
+        public ResultList GetCalculateResult(IList<HeroCounter> weightedList)
+        {
+            var orderedList = OrderList(weightedList);
+
+            //从orderedList中分别获取12345号位的表，分成五部分封装在json数组(ResultList类型)中返回
+            var carriesInfo = GetDutyInfo(1, orderedList);
+            var midsInfo = GetDutyInfo(2, orderedList);
+            var offlanesInfo = GetDutyInfo(3, orderedList);
+            var roamAndJunglesInfo = GetDutyInfo(4, orderedList);
+            var supportsInfo = GetDutyInfo(5, orderedList);
+
+            //返回这个计算结果列表给前端
+            var resultList = new ResultList()
+            {
+                Carries = carriesInfo,
+                Mids = midsInfo,
+                RoamOrJuggles = roamAndJunglesInfo,
+                Offlanes = offlanesInfo,
+                Supports = supportsInfo
+            };
+
+            return resultList;
+        }
     }
 }

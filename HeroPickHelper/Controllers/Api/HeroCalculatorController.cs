@@ -66,7 +66,7 @@ namespace HeroPickHelper.Controllers.Api
 
             var helper = new HeroDutyHelper();
 
-            if (enemyIds == null)
+            if (enemyIds == null || enemyIds.Count() > 5)
             {
                 return BadRequest();
             }
@@ -76,29 +76,31 @@ namespace HeroPickHelper.Controllers.Api
                 var enemyCounteredHeroList = helper.GetEnemyCounteredHeroList(enemyIds[0]);
                 var weightedList = helper.GetWeightedList(enemyCounteredHeroList, enemyIds[0]);
 
-                var orderedList = helper.OrderList(weightedList);
-
-                var carriesInfo = helper.GetDutyInfo(1, orderedList);
-                var midsInfo = helper.GetDutyInfo(2, orderedList);
-                var offlanesInfo = helper.GetDutyInfo(3, orderedList);
-                var roamAndJunglesInfo = helper.GetDutyInfo(4, orderedList);
-                var supportsInfo = helper.GetDutyInfo(5, orderedList);
-
-                //返回这个计算结果列表给前端
-                var resultList = new ResultList()
-                {
-                    Carries = carriesInfo,
-                    Mids = midsInfo,
-                    RoamOrJuggles = roamAndJunglesInfo,
-                    Offlanes = offlanesInfo,
-                    Supports = supportsInfo
-                };
+                var resultList = helper.GetCalculateResult(weightedList);
 
                 return Ok(resultList);
             }
             else
             {
-                return BadRequest();
+                var weightedList = new List<HeroCounter>();
+                for (int i = 0; i < enemyIds.Count(); i++)
+                {
+                    var enemyCounteredHeroList = helper.GetEnemyCounteredHeroList(enemyIds[i]);
+                    var currentWeightedList = helper.GetWeightedList(enemyCounteredHeroList, enemyIds[i]).ToList();
+                    if (i == 0)
+                    {
+                        weightedList = currentWeightedList;
+                    }
+                    else
+                    {
+                        weightedList = helper.CombineList(currentWeightedList, weightedList).ToList();
+                    }
+
+                }
+
+                var resultList = helper.GetCalculateResult(weightedList);
+
+                return Ok(resultList);
             }
         }
     }
