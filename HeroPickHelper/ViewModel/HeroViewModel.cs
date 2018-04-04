@@ -9,7 +9,7 @@ namespace HeroPickHelper.ViewModel
 {
     public class HeroViewModel
     {
-        public IEnumerable<HeroToclient> heroList { get; set; }
+        public IEnumerable<Hero> heroList { get; set; }
         public HeroDutyHelper helper { get; set; }
     }
 }

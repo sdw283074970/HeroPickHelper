@@ -11,7 +11,7 @@ namespace HeroPickHelper.Models
         public int Id { get; set; }
 
         [ForeignKey("HeroId")]
-        public HeroToclient Hero { get; set; }
+        public Hero Hero { get; set; }
 
         public int HeroId { get; set; }
 

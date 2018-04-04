@@ -21,7 +21,7 @@ namespace HeroPickHelper.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<HeroToclient> Heroes { get; set; }
+        public DbSet<Hero> Heroes { get; set; }
         public DbSet<Duty> Duties { get; set; }
         public DbSet<DutyHero> DutyHeroes { get; set; }
         public DbSet<HeroCounter> HeroCounters { get; set; }

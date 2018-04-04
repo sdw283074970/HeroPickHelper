@@ -119,6 +119,13 @@ namespace HeroPickHelper.Helper
         //有了英雄克制数据库后，在这个方法里面写算法
         //目前按照英雄Id顺序返回所有12345号位，有了克制数据库和算法后，将按照克制指数排序后再返回
         //目前返回前五位英雄
+        //GET方法的重载
+        public IList<Hero> GetDutyInfo(int dutyId)
+        {
+            return _context.DutyHeroes.Where(c => c.DutyId == dutyId).Select(c => c.Hero).ToList();
+        }
+
+        //POST方法的重载
         public IList<HeroToClient> GetDutyInfo(int dutyId, IList<HeroCounter> orderedList)
         {
             var result = new List<HeroToClient>();

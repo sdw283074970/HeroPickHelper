@@ -28,7 +28,7 @@ namespace HeroPickHelper.Controllers.Api
                 return BadRequest();
             }
 
-            var heroesDto= _context.Heroes.Select(Mapper.Map<HeroToclient, HeroDto>);
+            var heroesDto= _context.Heroes.Select(Mapper.Map<Hero, HeroDto>);
 
             return Ok(heroesDto);
         }
@@ -45,14 +45,14 @@ namespace HeroPickHelper.Controllers.Api
             if (hero == null)
                 return NotFound();
 
-            return Ok(Mapper.Map<HeroToclient, HeroDto>(hero));
+            return Ok(Mapper.Map<Hero, HeroDto>(hero));
         }
 
         // POST /api/hero
         [HttpPost]
         public IHttpActionResult CreatedHeroes(IEnumerable<HeroDto> heroesDto)
         {
-            var heroes = new List<HeroToclient>();
+            var heroes = new List<Hero>();
             int i = 0;
 
             if (!ModelState.IsValid)
@@ -63,7 +63,7 @@ namespace HeroPickHelper.Controllers.Api
             //在忽略DutyHeroes列表对象的情况下将hero添加进数据库
             foreach (var heroDto in heroesDto)
             {
-                var hero = Mapper.Map<HeroDto, HeroToclient>(heroDto);
+                var hero = Mapper.Map<HeroDto, Hero>(heroDto);
                 heroes.Add(hero);
             }
 

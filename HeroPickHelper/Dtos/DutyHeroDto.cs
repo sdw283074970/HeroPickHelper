@@ -10,7 +10,7 @@ namespace HeroPickHelper.Dtos
     {
         public int Id { get; set; }
         
-        public HeroToclient Hero { get; set; }
+        public Hero Hero { get; set; }
 
         public int HeroId { get; set; }
         
