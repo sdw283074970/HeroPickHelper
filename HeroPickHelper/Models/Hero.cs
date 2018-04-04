@@ -23,6 +23,10 @@ namespace HeroPickHelper.Models
 
         public string Url_vertical_portrait { get; set; }
 
+        public Color Color { get; set; }
+
+        public int? ColorId { get; set; }
+
         public string Position { get; set; }
 
         public ICollection<DutyHero> DutyHeroes { get; set; }

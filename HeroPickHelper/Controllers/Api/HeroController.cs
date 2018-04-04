@@ -20,7 +20,7 @@ namespace HeroPickHelper.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        // GET /api/hero
+        // GET /api/hero 获得所有英雄列表
         public IHttpActionResult GetHeroList()
         {
             if(!ModelState.IsValid)

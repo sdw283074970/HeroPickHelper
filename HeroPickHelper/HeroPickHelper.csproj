@@ -314,8 +314,17 @@
     <Compile Include="Migrations\201804041743307_CorrectedWrongSpellsInDutyHero.Designer.cs">
       <DependentUpon>201804041743307_CorrectedWrongSpellsInDutyHero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804042152461_AddColorsTable.cs" />
+    <Compile Include="Migrations\201804042152461_AddColorsTable.Designer.cs">
+      <DependentUpon>201804042152461_AddColorsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804042211417_AddManyToOneRelationshipBetweenHeroAndColor.cs" />
+    <Compile Include="Migrations\201804042211417_AddManyToOneRelationshipBetweenHeroAndColor.Designer.cs">
+      <DependentUpon>201804042211417_AddManyToOneRelationshipBetweenHeroAndColor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Color.cs" />
     <Compile Include="Models\Duty.cs" />
     <Compile Include="Models\DutyHero.cs" />
     <Compile Include="Models\Hero.cs" />
@@ -713,6 +722,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804041743307_CorrectedWrongSpellsInDutyHero.resx">
       <DependentUpon>201804041743307_CorrectedWrongSpellsInDutyHero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804042152461_AddColorsTable.resx">
+      <DependentUpon>201804042152461_AddColorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804042211417_AddManyToOneRelationshipBetweenHeroAndColor.resx">
+      <DependentUpon>201804042211417_AddManyToOneRelationshipBetweenHeroAndColor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

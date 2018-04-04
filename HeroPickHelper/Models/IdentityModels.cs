@@ -26,6 +26,7 @@ namespace HeroPickHelper.Models
         public DbSet<DutyHero> DutyHeroes { get; set; }
         public DbSet<HeroCounter> HeroCounters { get; set; }
         public DbSet<Weight> Weights { get; set; }
+        public DbSet<Color> Colors { get; set; }
         
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
