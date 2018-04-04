@@ -36,14 +36,14 @@
 
 * 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
 
-* 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
+* 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/view/Utopic/view/All/job/address-book-service-utopic-i386-ci.svg)
 	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
 	- 选择2：使用你懂的抓取以上网站的英雄克制数据
 	- 选择3：通过Steam暴露的Api获得近期比赛大数据，自己分析计算英雄克制数据
 
-* 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/sonar/4.2/http/sonar.petalslink.com/org.ow2.petals%3Apetals-se-ase/coverage.svg)
+* 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/badge/tests-115%2F115-brightgreen.svg)
 
-* 搭建RESTful Api	![Demo](https://img.shields.io/teamcity/coverage/bt428.svg)
+* 搭建RESTful Api	![Demo](https://img.shields.io/badge/tests-2%2F2-brightgreen.svg)
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
 	- 方法为POST，路由为 `~/api/herocalculator`
 
