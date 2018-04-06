@@ -10,6 +10,7 @@
     <div>
         <section>
             <header>英雄职责列表</header>
+            <button id="testbtn" class="btn btn-danger">click me</button>
             <article class="table-divided">
                 <table id="heroes" class="table table-condensed table-hover table-striped" data-page-length="5">
                     <thead>
@@ -57,7 +58,7 @@
                 paging: false
             });
 
-            $("#heroes").DataTable({
+            var table = $("#heroes").DataTable({
                 ajax: {
                     url: "/api/herocalculator",
                     dataSrc: "carries"
@@ -79,6 +80,11 @@
                         }
                     }
                 ]
+            });
+
+            $("#testbtn").on("click", function () {
+                table.destroy();
+                alert("成功");
             });
 
             $("#heroes").on("click", ".js-delete", function () {

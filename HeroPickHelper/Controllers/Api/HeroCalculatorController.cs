@@ -102,7 +102,7 @@ namespace HeroPickHelper.Controllers.Api
                 //输出结果
                 var resultList = _helper.GetCalculateResult(weightedList);
 
-                return Created(Request.RequestUri + "/12345", resultList);
+                return Created(Request.RequestUri + "/" + enemyIds.First() + ":" + enemyIds.Last(), resultList);
             }
         }
     }
