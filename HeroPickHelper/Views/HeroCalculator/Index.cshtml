@@ -14,21 +14,22 @@
     <div class="section-main">
         <div id="pickarea" class="section-pickarea">
             <div>
-                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img id="holder1" heroid=null class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img id="holder2" heroid=null class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img id="holder3" heroid=null class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img id="holder4" heroid=null class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
             <div>
-                <img class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
+                <img id="holder5" heroid=null class="iconholder" alt="点此选择英雄" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522740324839&di=444fff70d6821a70ce2f3a59128b8952&imgtype=0&src=http%3A%2F%2Fcdn4.freepik.com%2Fimage%2Fth%2F318-37418.jpg">
             </div>
-            <input type="button" class="btn btn-danger cal" value="Test!">
+            <input type="button" class="btn btn-danger cal" value="Calculate!">
+            <input id="testbtn" type="button" class="btn btn-danger" value="Test!">
         </div>
         <section id="heroresults" class="section-tablearea">
             <article class="table-divided">
@@ -90,8 +91,25 @@
     </div>
 </div>
 <div class="invisible-hero">
-    <div class="container-hero">
-
+    <div id="herolist" class="container-hero">
+        <div id="purple" class="list-hero">
+            <h2>紫色英雄 Purple Hero</h2>
+        </div>
+        <div id="red" class="list-hero">
+            <h2>红色英雄 Red Hero</h2>
+        </div>
+        <div id="blue" class="list-hero">
+            <h2>蓝色英雄 Blue Hero</h2>
+        </div>
+        <div id="yellow" class="list-hero">
+            <h2>黄色英雄 Yellow Hero</h2>
+        </div>
+        <div id="green" class="list-hero">
+            <h2>绿色英雄 Green Hero</h2>
+        </div>
+        <div id="white" class="list-hero">
+            <h2>白色英雄 White Hero</h2>
+        </div>
     </div>
 </div>
 
@@ -100,135 +118,198 @@
     <script>
         $(document).ready(function () {
 
-            $.getJSON("/api/hero", function (result) {
-                $.each(result, function (i, obj) {
-                    $(".container-hero").append(function () {
-                        return "<img src='" + obj.url_full_portrait + "' alt='loading' class='hero-head' />";
+            //设置全程按钮变量
+            var currenIconHolder;
+            var dataFromServer;
+
+            //$.ajax({
+            //    ulr: "/api/herocolored",
+            //    type: "GET",
+            //    success: function (data) {
+            //        $.each(data, function (i) {
+            //            $each(i, function (j) {
+            //                $(".container-hero").append("<text>112<text>");
+            //            })
+            //        })
+            //    }
+            //})
+
+            //从api获取按颜色分类的英雄列表
+            $.getJSON("/api/herocolored", function (result) {
+                $(".list-hero").each(function (index) {
+                    var currentDiv = $(this);
+                    var currentDivId = currentDiv.attr("id");
+                    $.each(result, function (i, color) {
+                        if (i == currentDivId) {
+                            $.each(color, function (j, hero) {
+                                currentDiv.append("<img class='head' src='" + hero.url_large_portrait + "' alr='loading' heroid='" + hero.id + "' vertical-src='" + hero.url_vertical_portrait +"' />");
+                            })
+                        }
                     })
-                });
+                })
             });
 
+            //点击英雄选择页面，即将当前iconholder图像替换成所选英雄的图像
+            $("#herolist").on("click", ".head", function () {
+                var currentHero = $(this);
+                currenIconHolder.attr("src", currentHero.attr("vertical-src"));
+                currenIconHolder.attr("heroid", currentHero.attr("heroid"));
+                layer.close(layer.index);
+            });
+
+            //点击iconholdere即可弹出"invisible-hero"类的html页面
             $(".iconholder").click(function () {
+                currenIconHolder = $(this);
                 layer.open({
                     title: false,
                     type: 1,
                     shadeClose: true,
                     area: ["80%", "90%"],
-                    content: $(".container-hero")
+                    content: $(".invisible-hero")
                 });
             });
 
+            //点击计算按钮，收集所选择的英雄Id，整合成数列，向服务器发送POST请求，将结果解析
+            $(".cal").on("click", function () {
+                var idArry = [];
+                var finalArry = []
+                $(".iconholder").each(function (i, holder) {
+                    var obj = $(this);
+                    if (obj.attr("heroid") != "null") {
+                        idArry.push(obj.attr("heroid"));
+                    }
+                });
+                idArry.forEach(function (v, i) {
+                    if ($.inArray(v, finalArry) == -1) {
+                        finalArry.push(v);
+                    }
+                })
+                if (finalArry == "")
+                {
+                    alert("请先选择英雄再提交！");
+                }
+                else if (finalArry.length < idArry.length)
+                {
+                    alert("请勿选择重复的英雄！");
+                }
+                else
+                {
+                    dataFromServer = JSON.stringify(finalArry);
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/herocalculator",
+                        contentType: 'application/json; charset=utf-8',
+                        data: dataFromServer,
+                        success: function (datalist, state) {
+                            alert("success!");
+                        },
+                        dataType: "json"
+                    })
+                }
+            });
+
+            //DataTable的默认配置
             $.extend($.fn.dataTable.defaults, {
                 searching: false,
                 ordering: false,
+                paging: false,
                 pageLength: 5,
-                paging: false
             });
 
-            $("#carry").DataTable({
-                ajax: {
-                    url: "/api/herocalculator",
-                    dataSrc: "carries"
-                },
-                columns: [
-                    {
-                        data: "url_small_portrait",
-                        render: function (data) {
-                            return "<img src='" + data + "' alt='test' />";
+            //点击刷新结果表
+            $("#testbtn").on("click", function () {
+                //以下五个都是DataTable插件
+                $("#carry").DataTable({
+                    data: JSON.stringify(datalist[carries]),
+                    columns: [
+                        {
+                            data: "url_small_portrait",
+                            render: function (data) {
+                                return "<img src='" + data + "' alt='test' />";
+                            }
+                        },
+                        {
+                            data: "position",
+                            render: function (data) {
+                                return "<text>null</text>";
+                            }
                         }
-                    },
-                    {
-                        data: "position",
-                        render: function (data) {
-                            return "<text>null</text>";
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
 
-            $("#mid").DataTable({
-                ajax: {
-                    url: "/api/herocalculator",
-                    dataSrc: "mids"
-                },
-                columns: [
-                    {
-                        data: "url_small_portrait",
-                        render: function (data) {
-                            return "<img src='" + data + "' alt='test' />";
+                $("#mid").DataTable({
+                    data: JSON.stringify(datalist[mids]),
+                    columns: [
+                        {
+                            data: "url_small_portrait",
+                            render: function (data) {
+                                return "<img src='" + data + "' alt='test' />";
+                            }
+                        },
+                        {
+                            data: "position",
+                            render: function (data) {
+                                return "<text>null</text>";
+                            }
                         }
-                    },
-                    {
-                        data: "position",
-                        render: function (data) {
-                            return "<text>null</text>";
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
 
-            $("#offlane").DataTable({
-                ajax: {
-                    url: "/api/herocalculator",
-                    dataSrc: "offlanes"
-                },
-                columns: [
-                    {
-                        data: "url_small_portrait",
-                        render: function (data) {
-                            return "<img src='" + data + "' alt='test' />";
+                $("#offlane").DataTable({
+                    data: JSON.stringify(datalist[offlanes]),
+                    columns: [
+                        {
+                            data: "url_small_portrait",
+                            render: function (data) {
+                                return "<img src='" + data + "' alt='test' />";
+                            }
+                        },
+                        {
+                            data: "position",
+                            render: function (data) {
+                                return "<text>null</text>";
+                            }
                         }
-                    },
-                    {
-                        data: "position",
-                        render: function (data) {
-                            return "<text>null</text>";
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
 
-            $("#roam").DataTable({
-                ajax: {
-                    url: "/api/herocalculator",
-                    dataSrc: "roamOrJuggles"
-                },
-                columns: [
-                    {
-                        data: "url_small_portrait",
-                        render: function (data) {
-                            return "<img src='" + data + "' alt='test' />";
+                $("#roam").DataTable({
+                    data: JSON.stringify(datalist["roamOrJuggles"]),
+                    columns: [
+                        {
+                            data: "url_small_portrait",
+                            render: function (data) {
+                                return "<img src='" + data + "' alt='test' />";
+                            }
+                        },
+                        {
+                            data: "position",
+                            render: function (data) {
+                                return "<text>null</text>";
+                            }
                         }
-                    },
-                    {
-                        data: "position",
-                        render: function (data) {
-                            return "<text>null</text>";
-                        }
-                    }
-                ]
-            });
+                    ]
+                });
 
-            $("#support").DataTable({
-                ajax: {
-                    url: "/api/herocalculator",
-                    dataSrc: "supports"
-                },
-                columns: [
-                    {
-                        data: "url_small_portrait",
-                        render: function (data) {
-                            return "<img src='" + data + "' alt='test' />";
+                $("#support").DataTable({
+                    data: JSON.stringify(datalist["supports"]),
+                    columns: [
+                        {
+                            data: "url_small_portrait",
+                            render: function (data) {
+                                return "<img src='" + data + "' alt='test' />";
+                            }
+                        },
+                        {
+                            data: "position",
+                            render: function (data) {
+                                return "<text>null</text>";
+                            }
                         }
-                    },
-                    {
-                        data: "position",
-                        render: function (data) {
-                            return "<text>null</text>";
-                        }
-                    }
-                ]
+                    ]
+                });
             });
+            
         });
     </script>
 }

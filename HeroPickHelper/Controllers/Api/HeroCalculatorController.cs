@@ -47,9 +47,15 @@ namespace HeroPickHelper.Controllers.Api
 
         //POST /api/herocalculator
         [HttpPost]
-        public IHttpActionResult GetCalculateResult(int[] enemyIds)
+        public IHttpActionResult GetCalculateResult([FromBody]int[] enemyIds)
         {
-            //实例化helper对象，该函数封装了核心算法和各种辅助函数
+            ////将idString解析成列表
+            //var enemyIds = new List<int>();
+            //string[] idArry = idString.Split(',');
+            //for (int i = 0; i < idArry.Length; i++)
+            //{
+            //    enemyIds.Add(int.Parse(idArry[i]));
+            //}
 
 
             //如果ModeState没被验证，则返回BadRequest
@@ -96,7 +102,7 @@ namespace HeroPickHelper.Controllers.Api
                 //输出结果
                 var resultList = _helper.GetCalculateResult(weightedList);
 
-                return Created(Request.RequestUri + "/" + enemyIds[0] + ":" + enemyIds.Last(), resultList);
+                return Created(Request.RequestUri + "/12345", resultList);
             }
         }
     }

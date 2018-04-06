@@ -72,17 +72,20 @@ textarea {
 }
 
 .table-result {
-    /*border-style:solid;
-    border-color:red;*/
+    border-style:solid;
+    border-color:red;
     width:100%;
 }
 
-.cal {
-    margin-left:47.2%;
+.head {
+    margin:2px;
+    width:10%;
+    height:10%;
 }
 
-.hero-head{
-    width: 10%;
-    padding: 2px;
+.container-hero {
+    margin-left:50px;
+    margin-top:50px;
+    margin-bottom:50px;
 }
 

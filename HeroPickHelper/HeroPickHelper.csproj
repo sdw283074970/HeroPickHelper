@@ -218,6 +218,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\HeroCalculatorController.cs" />
+    <Compile Include="Controllers\Api\HeroColoredController.cs" />
     <Compile Include="Controllers\Api\HeroController.cs" />
     <Compile Include="Controllers\HeroCalculatorController.cs" />
     <Compile Include="Controllers\HeroesController.cs" />
@@ -324,7 +325,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApiModelBinders\CommaDelimitedArrayModelBinder.cs" />
     <Compile Include="Models\Color.cs" />
+    <Compile Include="Models\ColoredHeroGroup.cs" />
     <Compile Include="Models\Duty.cs" />
     <Compile Include="Models\DutyHero.cs" />
     <Compile Include="Models\Hero.cs" />
