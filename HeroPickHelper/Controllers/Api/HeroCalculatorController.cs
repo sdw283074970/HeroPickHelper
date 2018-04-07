@@ -96,7 +96,6 @@ namespace HeroPickHelper.Controllers.Api
                     {
                         weightedList = _helper.CombineList(currentWeightedList, weightedList).ToList();
                     }
-
                 }
 
                 //输出结果
