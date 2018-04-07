@@ -89,7 +89,7 @@
         </section>
     </div>
 </div>
-<div class="invisible-hero">
+<div class="invisible-content">
     <div id="herolist" class="container-hero">
         <div id="purple" class="list-hero">
             <h2>紫色英雄 Purple Hero</h2>
@@ -117,10 +117,14 @@
     <script>
         $(document).ready(function () {
 
+            //隐藏英雄选择界面
+            $(".invisible-content").hide();
+
             //设置全程按钮变量
             var currenIconHolder;
             var dataFromServer;
             var isinited = false;
+            var ishiden = true;
 
             //从api获取按颜色分类的英雄列表
             $.getJSON("/api/herocolored", function (result) {
@@ -143,15 +147,16 @@
                 });
             });
 
-            //点击iconholdere即可弹出"invisible-hero"类的html页面
+            //点击iconholdere即可弹出"invisible-hero"类的Div元素
             $(".iconholder").click(function () {
                 currenIconHolder = $(this);
+                ishiden = false;
                 layer.open({
                     title: false,
                     type: 1,
                     shadeClose: true,
                     area: ["80%", "90%"],
-                    content: $(".invisible-hero")
+                    content: $(".invisible-content")
                 });
             });
 
@@ -161,6 +166,7 @@
                 currenIconHolder.attr("src", currentHero.attr("vertical-src"));
                 currenIconHolder.attr("heroid", currentHero.attr("heroid"));
                 layer.close(layer.index);
+                //$(".invisible-content").css("displa","block");
             });
 
             //点击计算按钮，收集所选择的英雄Id，整合成数列，向服务器发送POST请求，将结果解析
@@ -311,7 +317,7 @@
                                 }
                             });
 
-                            //删除表结果，方便下一次查询初始化
+                            //删除表结果，方便下一次查询表格初始化
                             $("#carry").DataTable().destroy();
                             $("#mid").DataTable().destroy();
                             $("#offlane").DataTable().destroy();
