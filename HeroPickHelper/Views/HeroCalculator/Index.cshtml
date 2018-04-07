@@ -130,11 +130,17 @@
                     $.each(result, function (i, color) {
                         if (i == currentDivId) {
                             $.each(color, function (j, hero) {
-                                currentDiv.append("<img class='head' src='" + hero.url_large_portrait + "' alr='loading' heroid='" + hero.id + "' vertical-src='" + hero.url_vertical_portrait +"' />");
+                                currentDiv.append("<div class='project'>" + "<img class='head project__card' src='" + hero.url_large_portrait + "' alr='loading' heroid='" + hero.id + "' vertical-src='" + hero.url_vertical_portrait + "' />" + "</div>");
                             })
                         }
                     })
-                })
+                });
+
+                //3D鼠标悬停效果
+                $(".project").hover3d({
+                    selector: ".project__card",
+                    sensitivity: 1
+                });
             });
 
             //点击iconholdere即可弹出"invisible-hero"类的html页面
@@ -322,8 +328,10 @@
                 searching: false,
                 ordering: false,
                 paging: false,
-                pageLength: 5,
+                pageLength: 30,
             });
+
+
 
             //点击刷新结果表
             $("#testbtn").on("click", function () {

@@ -15,7 +15,11 @@ namespace HeroPickHelper
                         "~/Scripts/respond.js",
                         "~/Scripts/DataTables/jquery.dataTables.js",
                         "~/Scripts/DataTables/dataTables.bootstrap.js",
-                        "~/Scripts/layer.js"));
+                        "~/Scripts/layer.js",
+                        "~/Scripts/jquery.hover3d.js",
+                        "~/Scripts/jquery.hover3d.min.js",
+                        "~/Scripts/jquery-2.1.1.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

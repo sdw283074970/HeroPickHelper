@@ -78,17 +78,67 @@ textarea {
 }
 
 .head {
-    margin:2px;
-    width:10%;
-    height:10%;
+    width:100px;
+    height:60px;
 }
 
 .container-hero {
     margin-left:50px;
+    margin-right:50px;
     margin-top:50px;
     margin-bottom:50px;
 }
 
 .main-button {
     margin-left: 45.8%;
+}
+
+.hover-in{
+    transition: .3s ease-out;
+}
+.hover-out{
+    transition: .3s ease-in;
+}   
+
+.project {
+    margin:2px;
+    float:left;
+    border:solid;
+    color:aliceblue;
+}
+
+#purple {
+    height:210px;
+    /*border:solid;
+    color:rebeccapurple;*/
+}
+
+#red {
+    height:280px;
+    /*border:solid;*/
+    /*color:indianred;*/
+}
+
+#blue {
+    height:280px;
+    /*border:solid;*/
+    /*color:cornflowerblue;*/
+}
+
+#yellow {
+    height:210px;
+    /*border:solid;*/
+    /*color:yellow;*/
+}
+
+#green {
+    height:210px;
+    /*border:solid;*/
+    /*color:darkseagreen;*/
+}
+
+#white {
+    height:140px;
+    /*border:solid;*/
+    /*color:black;*/
 }
