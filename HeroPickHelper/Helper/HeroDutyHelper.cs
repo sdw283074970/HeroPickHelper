@@ -100,25 +100,9 @@ namespace HeroPickHelper.Helper
         {
             return combindList.OrderByDescending(c => c.Value).ToList();
         }
-
-        ////5. 将以上方法封装成一个方法，方便调用
-        //public IList<HeroCounter> GetOrderedList(int[] enemyIds)
-        //{
-        //    foreach (var enemyId in enemyIds)
-        //    {
-        //        var enemyCounteredHeroList = GetEnemyCounteredHeroList(enemyId);
-        //        var weightedList = GetWeightedList(enemyCounteredHeroList, enemyId);
-        //    }
-
-
-        //}
-
-
-        //6. 将结果按照职责分割成五个部分，传回给客户端
-        //将"查找HeroDuty列表中含有DutyId为1的对象(这个对象包含了英雄Id的信息)"这个过程封装成方法
-        //有了英雄克制数据库后，在这个方法里面写算法
-        //目前按照英雄Id顺序返回所有12345号位，有了克制数据库和算法后，将按照克制指数排序后再返回
-        //目前返回前五位英雄
+        
+        //5. 按照职责列表分别算出每个职责对应的结果列表，如计算Carry结果列表
+            //返回的结果列表不应该包含已选择的敌方英雄
 
         //GET方法的重载（测试用）
         public IList<Hero> GetDutyInfo(int dutyId)
@@ -139,6 +123,7 @@ namespace HeroPickHelper.Helper
             //查找当前列表中是否含有目标职责的英雄id，将所有符合条件的英雄封装进HeroToClient列表
             foreach (var validRecord in orderedList)
             {
+                //遍历已排序的列表，如果得出的职责英雄id列表中有结果列表中的英雄id，且这个id不是敌方英雄，则输入进结果列表中
                 if (q.Contains(validRecord.Idb) && !enemyIds.Contains(validRecord.Idb))
                 {
                     var newResult = new HeroToClient()
@@ -156,7 +141,7 @@ namespace HeroPickHelper.Helper
             return result;
         }
 
-            //将第4~6步骤封装
+        //将第4~5步骤封装
         public ResultList GetCalculateResult(IList<HeroCounter> weightedList, int[] enemyIds)
         {
             var orderedList = OrderList(weightedList);
