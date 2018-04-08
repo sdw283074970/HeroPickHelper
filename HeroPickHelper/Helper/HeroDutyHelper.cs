@@ -36,7 +36,7 @@ namespace HeroPickHelper.Helper
         //    return dutyList;
         //}
 
-        // Get hero's duties 以string格式返回某一具体英雄Id拥有的职责名称
+        // Get hero's duties 以string格式返回某一具体英雄Id拥有的职责名称(测试用)
         public IEnumerable<string> GetHeroDutyies(int id)
         {
             //返回某一具体英雄Id拥有的dutyId列表
@@ -119,14 +119,15 @@ namespace HeroPickHelper.Helper
         //有了英雄克制数据库后，在这个方法里面写算法
         //目前按照英雄Id顺序返回所有12345号位，有了克制数据库和算法后，将按照克制指数排序后再返回
         //目前返回前五位英雄
-        //GET方法的重载
+
+        //GET方法的重载（测试用）
         public IList<Hero> GetDutyInfo(int dutyId)
         {
             return _context.DutyHeroes.Where(c => c.DutyId == dutyId).Select(c => c.Hero).ToList();
         }
 
         //POST方法的重载
-        public IList<HeroToClient> GetDutyInfo(int dutyId, IList<HeroCounter> orderedList)
+        public IList<HeroToClient> GetDutyInfo(int dutyId, IList<HeroCounter> orderedList, int[] enemyIds)
         {
             var result = new List<HeroToClient>();
             //找出哪些orderedList的英雄是拥有当前dutyId的，将所有目标职责的英雄id返回
@@ -138,7 +139,7 @@ namespace HeroPickHelper.Helper
             //查找当前列表中是否含有目标职责的英雄id，将所有符合条件的英雄封装进HeroToClient列表
             foreach (var validRecord in orderedList)
             {
-                if (q.Contains(validRecord.Idb))
+                if (q.Contains(validRecord.Idb) && !enemyIds.Contains(validRecord.Idb))
                 {
                     var newResult = new HeroToClient()
                     {
@@ -156,16 +157,16 @@ namespace HeroPickHelper.Helper
         }
 
             //将第4~6步骤封装
-        public ResultList GetCalculateResult(IList<HeroCounter> weightedList)
+        public ResultList GetCalculateResult(IList<HeroCounter> weightedList, int[] enemyIds)
         {
             var orderedList = OrderList(weightedList);
 
             //从orderedList中分别获取12345号位的表，分成五部分封装在json数组(ResultList类型)中返回
-            var carriesInfo = GetDutyInfo(1, orderedList);
-            var midsInfo = GetDutyInfo(2, orderedList);
-            var offlanesInfo = GetDutyInfo(3, orderedList);
-            var roamAndJunglesInfo = GetDutyInfo(4, orderedList);
-            var supportsInfo = GetDutyInfo(5, orderedList);
+            var carriesInfo = GetDutyInfo(1, orderedList, enemyIds);
+            var midsInfo = GetDutyInfo(2, orderedList, enemyIds);
+            var offlanesInfo = GetDutyInfo(3, orderedList, enemyIds);
+            var roamAndJunglesInfo = GetDutyInfo(4, orderedList, enemyIds);
+            var supportsInfo = GetDutyInfo(5, orderedList, enemyIds);
 
             //返回这个计算结果列表给前端
             var resultList = new ResultList()

@@ -76,7 +76,7 @@ namespace HeroPickHelper.Controllers.Api
                 var enemyCounteredHeroList = _helper.GetEnemyCounteredHeroList(enemyIds[0]);
                 var weightedList = _helper.GetWeightedList(enemyCounteredHeroList, enemyIds[0]);
 
-                var resultList = _helper.GetCalculateResult(weightedList);
+                var resultList = _helper.GetCalculateResult(weightedList, enemyIds);
 
                 return Created(Request.RequestUri + "/" + enemyIds[0],resultList);
             }
@@ -99,7 +99,7 @@ namespace HeroPickHelper.Controllers.Api
                 }
 
                 //输出结果
-                var resultList = _helper.GetCalculateResult(weightedList);
+                var resultList = _helper.GetCalculateResult(weightedList, enemyIds);
 
                 return Created(Request.RequestUri + "/" + enemyIds.First() + ":" + enemyIds.Last(), resultList);
             }
