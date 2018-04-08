@@ -64,7 +64,7 @@
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/MainResultPage.png)
 
 #### 英雄选择效果HeroPickPage
-![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/MainResultPage.png)
+![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickPage.png)
 
 #### 示例Demo
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickHelperDemo.png)
