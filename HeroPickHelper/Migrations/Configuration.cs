@@ -22,11 +22,11 @@ namespace HeroPickHelper.Migrations
 
             //EF无法正确编码 尝试插入Character Set=UTF8在connectionStrings中失败
             //context.Duties.AddOrUpdate(d => d.Id,
-            //    new Duty() { Id = 1, Name = "大哥" },
-            //    new Duty() { Id = 2, Name = "中单" },
-            //    new Duty() { Id = 3, Name = "劣单" },
-            //    new Duty() { Id = 4, Name = "游走或打野" },
-            //    new Duty() { Id = 5, Name = "辅助" }
+            //    new Duty() { Id = 1, Name = "Carry" },
+            //    new Duty() { Id = 2, Name = "Mid" },
+            //    new Duty() { Id = 3, Name = "Offlane" },
+            //    new Duty() { Id = 4, Name = "Roam Or Junggle" },
+            //    new Duty() { Id = 5, Name = "Support" }
             //    );
 
             //for(int i = 1; i < 116; i++)
@@ -180,6 +180,10 @@ namespace HeroPickHelper.Migrations
             //        WeightIndex = 1
             //    }
             //);
+
+            context.Colors.AddOrUpdate(c => c.ColorName,
+                new Color { Id = 1, ColorName = "PPP" }
+                );
         }
     }
 }
