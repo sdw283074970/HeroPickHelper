@@ -57,7 +57,9 @@
 
 ### 部署 Deployment
 
-* 部署方式待定
+* 预计部署到阿里云服务器
+* 服务器地理位置位于美国硅谷，操作系统伟Window Server 2012 R2
+* IIS已搭建
 
 ### 当前样本 Current Demo
 #### 主功能页面框架MainFunctionPageFramework
