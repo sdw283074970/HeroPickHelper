@@ -5,7 +5,8 @@
 
 #### 服务器状态 Server status
 
-* 数据迁移成功
+* 数据库迁移成功
+* Database migration succeess
 
 # 简介 Introduction
 
