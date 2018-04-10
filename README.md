@@ -59,7 +59,8 @@
 
 * 预计部署到阿里云服务器
 * 服务器地理位置位于美国硅谷，操作系统伟Window Server 2012 R2
-* IIS已搭建
+* 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
+* IIS已安装
 
 ### 当前样本 Current Demo
 #### 主功能页面框架MainFunctionPageFramework
