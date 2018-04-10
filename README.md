@@ -2,9 +2,6 @@
 ================================
 
 # 更新状态 Update
-### 安装 Installation
-
-* 连接上本Github source直接克隆项目
 
 ### 部署状态 Deployment status
 
@@ -15,6 +12,12 @@
 * 记录类型: A
 * 主机记录: @
 * TTL: 10 min
+
+### 服务器环境配置状态 Server environment config status
+* IIS8.0 已安装
+* 尝试安装 MS SQL Server 2017 Express Edition 失败
+* 尝试安装 MS SQL Server 2017 Developer Edition 失败
+* 继续尝试其他版本的 MS SQL Server
 
 ==============================
 
