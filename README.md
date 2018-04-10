@@ -1,7 +1,7 @@
 英雄选择助手HeroPickHelper
 ================================
 
-# 更新状态 Update
+## 更新状态 Update 2018.04.09
 
 ### 部署状态 Deployment status
 
