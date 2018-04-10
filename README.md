@@ -1,9 +1,9 @@
 英雄选择助手HeroPickHelper
 ================================
 
-## 更新状态 Update 2018.04.09
+### 更新日志 Update log 2018.04.09
 
-### 部署状态 Deployment status
+#### 部署状态 Deployment status
 
 * 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
 * 操作系统: Window Server 2012 R2
@@ -13,7 +13,7 @@
 * 主机记录: @
 * TTL: 10 min
 
-### 服务器环境配置状态 Server environment config status
+#### 服务器环境配置状态 Server environment config status
 * IIS8.0 已安装
 * 尝试安装 MS SQL Server 2017 Express Edition 失败
 * 尝试安装 MS SQL Server 2017 Developer Edition 失败
