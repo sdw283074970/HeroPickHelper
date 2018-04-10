@@ -1,23 +1,11 @@
 英雄选择助手HeroPickHelper
 ================================
 
-### 更新日志 Update log 2018.04.09
+### 更新日志 Update log 2018.04.10
 
-#### 部署状态 Deployment status
+#### 服务器状态 Server status
 
-* 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
-* 操作系统: Window Server 2012 R2
-* 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
-* 域名: heropick.win 租期一年
-* 记录类型: A
-* 主机记录: @
-* TTL: 10 min
-
-#### 服务器环境配置状态 Server environment config status
-* IIS8.0 已安装
-* 尝试安装 MS SQL Server 2017 Express Edition 失败
-* 尝试安装 MS SQL Server 2017 Developer Edition 失败
-* 继续尝试其他版本的 MS SQL Server
+* 数据迁移成功
 
 # 简介 Introduction
 
@@ -87,7 +75,7 @@
 * IIS8.0 已安装
 * 尝试安装 MS SQL Server 2017 Express Edition 失败
 * 尝试安装 MS SQL Server 2017 Developer Edition 失败
-* 继续尝试其他版本的 MS SQL Server
+* 安装 MS SQL Server 2008 Express Edition 成功
 
 # 当前样本 Current Demo
 ### 主功能页面框架MainFunctionPageFramework
