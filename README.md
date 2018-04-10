@@ -1,7 +1,24 @@
 英雄选择助手HeroPickHelper
-====
+================================
 
-### 简介Introduction
+# 更新状态 Update
+### 安装 Installation
+
+* 连接上本Github source直接克隆项目
+
+### 部署状态 Deployment status
+
+* 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
+* 操作系统: Window Server 2012 R2
+* 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
+* 域名: heropick.win 租期一年
+* 记录类型: A
+* 主机记录: @
+* TTL: 10 min
+
+==============================
+
+### 简介 Introduction
 
 * 这是一个网页应用项目
 * This is a web application project
@@ -55,12 +72,21 @@
 
 * 连接上本Github source直接克隆项目
 
-### 部署 Deployment
+### 部署状态 Deployment status
 
 * 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
 * 操作系统: Window Server 2012 R2
 * 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
-* IIS已安装
+* 域名: heropick.win 租期一年
+* 记录类型: A
+* 主机记录: @
+* TTL: 10 min
+
+### 服务器环境配置状态 Server environment config status
+* IIS8.0 已安装
+* 尝试安装 MS SQL Server 2017 Express Edition 失败
+* 尝试安装 MS SQL Server 2017 Developer Edition 失败
+* 继续尝试其他版本的 MS SQL Server
 
 ### 当前样本 Current Demo
 #### 主功能页面框架MainFunctionPageFramework
