@@ -19,7 +19,7 @@
 * 尝试安装 MS SQL Server 2017 Developer Edition 失败
 * 继续尝试其他版本的 MS SQL Server
 
-==============================
+====
 
 ### 简介 Introduction
 
