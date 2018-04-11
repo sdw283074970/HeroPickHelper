@@ -52,7 +52,9 @@ namespace HeroPickHelper.Helper
             //根据前端传回的Id数组中的敌方英雄id，获取当前敌方英雄的counteredHeroList
         public IList<HeroCounter> GetEnemyCounteredHeroList(int enemyId)
         {
-            return _context.HeroCounters.Where(c => c.Ida == enemyId).ToList();
+            var test = _context.HeroCounters.Where(c => c.Ida == 9).ToList();
+            var enemiesOfEnemy = _context.HeroCounters.Where(c => c.Ida == enemyId).ToList();
+            return enemiesOfEnemy;
         }
 
 
