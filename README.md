@@ -1,7 +1,14 @@
 英雄选择助手HeroPickHelper
-====
+================================
 
-### 简介Introduction
+### 更新日志 Update log 2018.04.10
+
+#### 服务器状态 Server status
+
+* 数据库迁移成功
+* Database migration succeess
+
+# 简介 Introduction
 
 * 这是一个网页应用项目
 * This is a web application project
@@ -32,7 +39,7 @@
 		* .NET Web API
 		* Microsoft SQL Server
 
-### 项目计划表 To Do List
+# 项目计划表 To Do List
 
 * 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
 
@@ -51,24 +58,36 @@
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
  	- 生成可视化列表
 	
-### 安装 Installation
+# 安装 Installation
 
 * 连接上本Github source直接克隆项目
 
-### 部署 Deployment
+# 部署状态 Deployment status
 
-* 部署方式待定
+* 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
+* 操作系统: Window Server 2012 R2
+* 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
+* 域名: heropick.win 租期一年
+* 记录类型: A
+* 主机记录: @
+* TTL: 10 min
 
-### 当前样本 Current Demo
-#### 主功能页面框架MainFunctionPageFramework
+# 服务器环境配置状态 Server environment config status
+* IIS8.0 已安装
+* 尝试安装 MS SQL Server 2017 Express Edition 失败
+* 尝试安装 MS SQL Server 2017 Developer Edition 失败
+* 安装 MS SQL Server 2008 Express Edition 成功
+
+# 当前样本 Current Demo
+### 主功能页面框架MainFunctionPageFramework
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/MainResultPage.png)
 
-#### 英雄选择效果HeroPickPage
+### 英雄选择效果HeroPickPage
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickPage.png)
 
-#### 示例Demo
+### 示例Demo
 ![Demo](https://github.com/sdw283074970/HeroPickHelper/blob/master/pic/HeroPickHelperDemo.png)
 
-### 联系方式 Contact
+# 联系方式 Contact
 
 * Email: downwes@gmail.com
