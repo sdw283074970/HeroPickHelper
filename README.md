@@ -5,8 +5,8 @@
 
 #### 服务器状态 Server status
 
-* 数据库迁移成功
-* Database migration succeess
+* 网站部署成功
+* Web App deploy succeess
 
 # 简介 Introduction
 
@@ -38,6 +38,12 @@
 		* Entity Framework
 		* .NET Web API
 		* Microsoft SQL Server
+		
+	- 前端插件 Front-end Plug-in
+	
+		* DataTable.js
+		* Layui.layer
+		* 3d-hover.js
 
 # 项目计划表 To Do List
 
