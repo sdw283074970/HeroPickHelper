@@ -70,7 +70,7 @@
 
 # 部署状态 Deployment status
 
-* 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
+* 已部署到阿里云服务器，服务器地理位置位于美国硅谷
 * 操作系统: Window Server 2012 R2
 * 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
 * 域名: heropick.win 租期一年
@@ -79,7 +79,7 @@
 * TTL: 10 min
 
 # 服务器环境配置状态 Server environment config status
-* IIS8.0 已安装
+* IIS8.5 已安装
 * 尝试安装 MS SQL Server 2017 Express Edition 失败
 * 尝试安装 MS SQL Server 2017 Developer Edition 失败
 * 安装 MS SQL Server 2008 Express Edition 成功
