@@ -6,7 +6,7 @@
 #### 服务器状态 Server status
 
 * 网站部署成功 域名：http://heropick.win
-* Web App deploy succeess
+* Web App deploy succeess Domain: http://heropick.win
 
 # 简介 Introduction
 
