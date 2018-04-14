@@ -58,7 +58,8 @@
 
 * 搭建RESTful Api	![Demo](https://img.shields.io/badge/tests-2%2F2-brightgreen.svg)
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
-	- 方法为POST，路由为 `~/api/herocalculator`
+	- 公开以下Api：
+	    + 没关系
 
 * 制作前端页面	![Demo](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
