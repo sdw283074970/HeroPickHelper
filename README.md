@@ -60,7 +60,9 @@
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
 	- 公开以下Api：
 	
-	    * 没关系
+		* `heropick.win/api/herocolored`  GET请求，按头像颜色分类返回所有英雄列表
+		* `heropick.win/api/hero`  GET请求，返回所有英雄列表
+		* `heropick.win/api/herocalcilator`  POST请求，上传英雄ID数组，返回选择方案
 
 * 制作前端页面	![Demo](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
