@@ -61,8 +61,8 @@
 	- 公开以下Api：
 	
 		* `heropick.win/api/herocolored`  GET请求，按头像颜色分类返回所有英雄列表
-		* `heropick.win/api/hero`  GET请求，返回所有英雄列表
-		* `heropick.win/api/herocalcilator`  POST请求，上传英雄ID数组，返回选择方案
+		* `heropick.win/api/hero`  GET请求，返回所有英雄职责列表
+		* `heropick.win/api/herocalcilator`  POST请求，发送英雄ID数组，返回选择方案
 
 * 制作前端页面	![Demo](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
