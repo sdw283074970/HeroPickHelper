@@ -5,7 +5,7 @@
 
 #### 服务器状态 Server status
 
-* 网站部署成功
+* 网站部署成功 域名：http://heropick.win
 * Web App deploy succeess
 
 # 简介 Introduction
@@ -64,9 +64,9 @@
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
  	- 生成可视化列表
 	
-# 安装 Installation
+# 使用 Usage
 
-* 连接上本Github source直接克隆项目
+* 浏览器输入域名Domain：http://heropick.win
 
 # 部署状态 Deployment status
 
