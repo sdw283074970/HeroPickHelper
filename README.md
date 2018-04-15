@@ -30,7 +30,6 @@
 		* C#(Razor)
 		* jQuery
 		* ajax
-	 	* Angular(如果有人会这个最好，没人的话只能用RazorView)
     
 	- 后端 Back-end
   
