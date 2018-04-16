@@ -46,12 +46,12 @@
 
 # 项目计划表 To Do List
 
-* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
+* 通过自制Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
 
 * 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/view/Utopic/view/All/job/address-book-service-utopic-i386-ci.svg)
-	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
-	- 选择2：使用你懂的抓取以上网站的英雄克制数据
-	- 选择3：通过Steam暴露的Api获得近期比赛大数据，自己分析计算英雄克制数据
+	- 本项目无法通过官方公开Api计算英雄克制数据。原因为本项目使用自制Api导入英雄数据到数据库，
+	英雄Id与官方英雄Id错位(可能官方有未公布的英雄占用了一个Id)。唯一获取英雄克制数据的途径只有爬
+	虫脚本。
 
 * 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/badge/tests-115%2F115-brightgreen.svg)
 
