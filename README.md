@@ -49,9 +49,10 @@
 * 通过自制Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
 
 * 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/view/Utopic/view/All/job/address-book-service-utopic-i386-ci.svg)
-	- 本项目无法通过官方公开Api计算英雄克制数据。原因为本项目使用自制Api导入英雄数据到数据库，
-	英雄Id与官方英雄Id错位(可能官方有未公布的英雄占用了一个Id)。唯一获取英雄克制数据的途径只有爬
-	虫脚本。
+	- 本项目目前无法通过官方公开Api计算英雄克制数据。原因为本项目使用自制Api导入英雄数据到数据库，英雄Id与官方英雄Id错位(可能官方有未公布的英雄占用了一个Id)。
+	
+		* 解决方案1：使用爬虫脚本获取英雄名称和克制数据
+		* 解决方案2：重做数据库，用官方公开Api计算英雄克制数据
 
 * 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/badge/tests-115%2F115-brightgreen.svg)
 
