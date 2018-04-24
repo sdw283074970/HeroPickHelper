@@ -36,7 +36,7 @@ textarea {
     border-style:solid;
     border-color:red;
     margin:20px;
-    background-color:#aaaaaa;
+    /*background-color:#aaaaaa;*/
 }
 
 .maincontainer {
@@ -48,7 +48,7 @@ textarea {
 .section-pickarea {
     border-style:solid;
     border-color:yellow;
-    background-color:#bbbbbb;
+    /*background-color:#bbbbbb;*/
     height:380px;
     margin:20px;
 }
@@ -58,7 +58,7 @@ textarea {
     border-color:blue;
     margin:20px;
     height:330px;
-    background-color:#cccccc;
+    /*background-color:#cccccc;*/
     clear:both;
 }
 
@@ -68,7 +68,7 @@ textarea {
     width:19%;
     margin:0.5%;
     height:310px;
-    background-color:antiquewhite;
+    /*background-color:antiquewhite;*/
 }
 
 .table-result {
