@@ -5,8 +5,8 @@
 
 #### 服务器状态 Server status
 
-* 网站部署成功
-* Web App deploy succeess
+* 部署网页应用成功 域名：http://heropick.win
+* Deploy Web App succeeded Domain: http://heropick.win
 
 # 简介 Introduction
 
@@ -30,7 +30,6 @@
 		* C#(Razor)
 		* jQuery
 		* ajax
-	 	* Angular(如果有人会这个最好，没人的话只能用RazorView)
     
 	- 后端 Back-end
   
@@ -47,30 +46,35 @@
 
 # 项目计划表 To Do List
 
-* 通过Steam官方Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
+* 通过自制Api获取英雄信息，添加英雄职责，写入数据库	![Demo](https://img.shields.io/badge/tests-1%2F1-brightgreen.svg)
 
 * 获取英雄克制数据，写入数据库	![Demo](https://img.shields.io/jenkins/c/https/jenkins.qa.ubuntu.com/view/Utopic/view/All/job/address-book-service-utopic-i386-ci.svg)
-	- 选择1：获得类似网站(如MAX+，或DotaBuff)Api授权，直接获取英雄克制数据
-	- 选择2：使用你懂的抓取以上网站的英雄克制数据
-	- 选择3：通过Steam暴露的Api获得近期比赛大数据，自己分析计算英雄克制数据
+	- 本项目目前无法通过官方公开Api计算英雄克制数据。原因为本项目使用自制Api导入英雄数据到数据库，英雄Id与官方英雄Id错位(可能官方有未公布的英雄占用了一个Id)。
+	
+		* 解决方案1：使用爬虫脚本获取英雄名称和克制数据
+		* 解决方案2：重做数据库，用官方公开Api计算英雄克制数据
 
 * 基于英雄克制数据，设计英雄推荐列表生成算法	![Demo](https://img.shields.io/badge/tests-115%2F115-brightgreen.svg)
 
 * 搭建RESTful Api	![Demo](https://img.shields.io/badge/tests-2%2F2-brightgreen.svg)
 	- 封装算法，直接向客户端返回英雄推荐列表粗数据(json格式)
-	- 方法为POST，路由为 `~/api/herocalculator`
+	- 公开以下Api：
+	
+		* `heropick.win/api/herocolored`  GET请求，按头像颜色分类返回所有英雄列表
+		* `heropick.win/api/hero`  GET请求，返回所有英雄职责列表
+		* `heropick.win/api/herocalculator`  POST请求，发送英雄ID数组，返回选择方案
 
 * 制作前端页面	![Demo](https://img.shields.io/coveralls/bitbucket/pyKLIP/pyklip.svg)
 	- 调用 POST `~/api/herocalculator` 在客户端解析数据
  	- 生成可视化列表
 	
-# 安装 Installation
+# 使用 Usage
 
-* 连接上本Github source直接克隆项目
+* 浏览器输入域名Domain：http://heropick.win
 
 # 部署状态 Deployment status
 
-* 预计部署到阿里云服务器，服务器地理位置位于美国硅谷
+* 已部署到阿里云服务器，服务器地理位置位于美国硅谷
 * 操作系统: Window Server 2012 R2
 * 配置: 1 vCPU 1 GB (I/O优化) ecs.xn4.small 30Mbps (峰值)
 * 域名: heropick.win 租期一年
@@ -79,7 +83,7 @@
 * TTL: 10 min
 
 # 服务器环境配置状态 Server environment config status
-* IIS8.0 已安装
+* IIS8.5 已安装
 * 尝试安装 MS SQL Server 2017 Express Edition 失败
 * 尝试安装 MS SQL Server 2017 Developer Edition 失败
 * 安装 MS SQL Server 2008 Express Edition 成功
